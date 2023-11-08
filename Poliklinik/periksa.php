@@ -64,7 +64,7 @@ include_once("koneksi.php");
                 Nama Pasien
             </label>
     <select class="form-control" name="id_pasien" id="datanama" onchange="changeValue(this.value)">
-        <option value="0">-Pilih Nama-</option>
+        <option>-Pilih Nama-</option>
         <?php 
 
         include 'koneksi.php';
@@ -88,7 +88,7 @@ include_once("koneksi.php");
                 Nama Dokter
             </label>
     <select class="form-control" name="id_dokter" id="nama" onchange="changeValue(this.value)">
-        <option value="0">-Pilih Nama-</option>
+        <option>-Pilih Nama-</option>
         <?php 
 
         include 'koneksi.php';
@@ -128,7 +128,6 @@ include_once("koneksi.php");
 </form>
 <!-- Table-->
 <table class="table table-hover">
-    <!--thead atau baris judul-->
     <thead>
         <tr>
             <th scope="col">#</th>
@@ -139,11 +138,8 @@ include_once("koneksi.php");
             <th scope="col">Aksi</th>
         </tr>
     </thead>
-    <!--tbody berisi isi tabel sesuai dengan judul atau head-->
     <tbody>
-        <!-- Kode PHP untuk menampilkan semua isi dari tabel urut
-        berdasarkan status dan tanggal awal-->
-        <?php
+    <?php
         $result = mysqli_query(
             $koneksi,"SELECT * FROM periksa ORDER BY id_pasien"
             );
@@ -152,7 +148,7 @@ include_once("koneksi.php");
         ?>
             <tr>
                 <th scope="row"><?php echo $no++ ?></th>
-                <td><?php echo htmlspecialchars($data['id_pasien']) ?></td>
+                <td><?php echo htmlspecialchars($data['datanama']) ?></td>
                 <td><?php echo htmlspecialchars($data['id_dokter']) ?></td>
                 <td><?php echo htmlspecialchars($data['tgl_periksa']) ?></td>
                 <td><?php echo htmlspecialchars($data['catatan']) ?></td>
